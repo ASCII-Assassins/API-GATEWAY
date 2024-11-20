@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: .
+    ports:
+      - '4001:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
+      - CHAT_SERVICE_URL=${CHAT_SERVICE_URL}
+      - RABBITMQ_URI=${RABBITMQ_URI}
